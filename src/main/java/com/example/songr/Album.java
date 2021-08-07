@@ -1,6 +1,20 @@
 package com.example.songr;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jdk.jfr.Enabled;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@JsonIgnoreProperties(value = { "songs" })
+@Table(name = "albums")
 public class Album {
+   @Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private  long id;
 
     private String title;
     private String artist;
@@ -8,8 +22,16 @@ public class Album {
     private String length;
     private String imageUrl;
 
+    @OneToMany(mappedBy = "album" )
+    private List<Song> song;
 
-    public Album(String title, String artist, int songCount, String length, String imageUrl) {
+
+    public List<Song> getSong() {
+        return song;
+    }
+
+
+    public Album(String title, String artist, int songCount, String length, String imageUrl, long id) {
         this.title = title;
         this.artist = artist;
         this.songCount = songCount;
@@ -17,6 +39,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    public long getId() {
+        return id;
+    }
     public Album() {
     }
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <p>bader</p>
-<div th:each="album : ${albums}">
+<div th:each="album:${albums}">
     <p th:text="${album.title}"></p>
     <p th:text="${album.artist}"></p>
     <p th:text=${album.songCount}></p>
@@ -14,5 +14,15 @@
     <img th:src="${album.imageUrl}">
 
 </div>
+<form action="#" th:action="@{/album}" th:object="${album}" method="post">
+    <h1>add albums</h1>
+    <h2>title: <input type="text" th:field="*{title}"/></h2>
+    <h2>artist: <input type="text" th:field="*{artist}"/></h2>
+    <h2>songCount: <input type="number" th:field="*{songCount}"/></h2>
+    <h2>length: <input type="text" th:field="*{length}"/></h2>
+    <h2>imageUrl: <input type="url" th:field="*{imageUrl}"/></h2>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"></p>
+
+</form>
 </body>
 </html>
