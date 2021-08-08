@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/styles/albums.css}"
+          href="../static/styles/albums.css">
 </head>
 <body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/addalbums">Albums</a>
+        </li>
+        <li>
+            <a href="/addsong">Songs</a>
+        </li>
+    </ul>
+</nav>
 <p>bader</p>
-<div th:each="album : ${albums}">
+<div class="A-flex">
+<div th:each="album:${albums}" class="cardFlex card1" >
+    <img th:src="${album.imageUrl}" class="imgPost">
     <p th:text="${album.title}"></p>
     <p th:text="${album.artist}"></p>
     <p th:text=${album.songCount}></p>
     <p th:text="${album.length}"></p>
-    <img th:src="${album.imageUrl}">
-
+    <a th:href="'/album/' + ${album.id}">
+        <button>View Album Songs</button>
+    </a>
+</div>
+<form action="#" th:action="@{/album}" th:object="${album}" method="post" class="profileCard cardFlex">
+    <h1>add albums</h1>
+    <h2 class="titlePost">title: <input type="text" th:field="*{title}"/></h2>
+    <h2 class="titlePost">artist: <input type="text" th:field="*{artist}"/></h2>
+    <h2 class="titlePost">songCount: <input type="number" th:field="*{songCount}"/></h2>
+    <h2 class="titlePost">length: <input type="text" th:field="*{length}"/></h2>
+    <h2 class="titlePost">imageUrl: <input type="url" th:field="*{imageUrl}"/></h2>
+    <p class="titlePost"><input type="submit" value="Submit"/> <input type="reset" value="Reset"></p>
+</form>
 </div>
 </body>
 </html>

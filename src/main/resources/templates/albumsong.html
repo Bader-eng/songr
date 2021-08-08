@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/styles/albums.css}"
+          href="../static/styles/albums.css">
+</head>
+<body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/addalbums">Albums</a>
+        </li>
+        <li>
+            <a href="/addsong">Songs</a>
+        </li>
+    </ul>
+</nav>
+<div class="A-flex">
+<form action="#" th:action="@{'/album/' + ${album.getId()}}" th:object="${song}" method="post" class="profileCard cardFlex">
+    <div>
+        <label for="title">Title: </label>
+        <input type="text" id="title" th:field="*{title}" required/>
+    </div>
+    <div>
+        <label for="length">Length: </label>
+        <input type="number" id="length" th:field="*{length}" required min="0"/>
+    </div>
+    <div>
+        <label for="trackNumber">Track Number: </label>
+        <input type="number" id="trackNumber" th:field="*{trackNumber}" required min="0"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+</div>
+<div class="A-flex">
+
+<div class="card1" >
+    <p th:text="'Title: ' + ${album.getTitle()}"></p>
+    <p th:text="'Artist: ' + ${album.getArtist()}"></p>
+    <p th:text="'Song Count: ' + ${album.getSongCount()}"></p>
+    <p th:text="'Length: ' + ${album.getLength()} + ' s'"></p>
+</div>
+
+
+<h1>song page</h1>
+<div th:each="album:${songs}" class="card1">
+    <p th:text="${album.title}"></p>
+    <p th:text="${album.length}"></p>
+    <p th:text=${album.trackNumber}></p>
+    <!--    <p th:text=${album.album}></p>-->
+</div>
+</div>
+</body>
+</html>

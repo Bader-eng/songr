@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    background-color: wheat;
+}
+
+.A-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+/*.commentList{*/
+/*    overflow-y: scroll;*/
+/*    height: 100vh;*/
+/*}*/
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.cardFlex{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.profileCard{
+    text-align: center;
+    width:500px;
+    height: 400px;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    border:rebeccapurple solid;
+    background-color:rgba(255,255,255,0.1) ;
+}
+.titlePost{
+    text-align: center;
+    width: 496px;
+    height: 45px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color:rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding:5px;
+    margin-bottom: 2px;
+}
+.titlePost:hover{
+    background-color:steelblue;
+    color: white;
+    transition: 0.5s;
+}
+
+.card1{
+    margin: 20px;
+    width: 600PX;
+    height: 200PX;
+    text-align: center;
+    background-color:rgba(255,255,255,0.1);
+    border:rebeccapurple solid;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+    border-radius: 5px;
+}
+.card1:hover{
+    transform: translateY(20px);
+}
+.imgPost{
+    width: 200px;
+    height: 70px;
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    margin-top: 1px;
+    margin-bottom: 7px;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.title{
+    text-align: center;
+    width: 596px;
+    height: 38px;
+
+    font-size: 16px;
+    background-color:rgba(255,255,255,0.1);
+    border: solid snow;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.title:hover {
+    background-color: steelblue;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
