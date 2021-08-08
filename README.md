@@ -5,12 +5,11 @@
 ### to run this project: 
 
 clone the repo:
-```t```
+```https://github.com/Bader-eng/songr.git```
 
 update the **application.properties** file with your:
 - user name
 - password
-- datasourse url
 - jpa database
 
 Run the project and see the result from the following link:
