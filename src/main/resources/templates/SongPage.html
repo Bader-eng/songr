@@ -3,26 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/styles/albums.css}"
+          href="../static/styles/albums.css">
 </head>
 <body>
-<h1>song page</h1>
-<div th:each="song:${songs}">
-  <p th:text="${song.Song_title}"></p>
-  <p th:text="${song.length}"></p>
-  <p th:text=${song.trackNumber}></p>
-  <p th:text="${song.album}"></p>
-</div>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
 
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/addalbums">Albums</a>
+        </li>
+        <li>
+            <a href="/addsong">Songs</a>
+        </li>
+    </ul>
+</nav>
+<div class="A-flex">
+<div th:each="album:${songs}" class="card1 cardFlex">
+  <p th:text="${album.title}"></p>
+  <p th:text="${album.length}"></p>
+  <p th:text=${album.trackNumber}></p>
+<!--    <p th:text=${album.album}></p>-->
 </div>
-<form action="#" th:action="@{/songs}" th:object="${songs}" method="post">
-  <h1>add albums</h1>
-  <h2>title: <input type="text" th:field="*{Song_title}"/></h2>
-<!--  <h2>artist: <input type="text" th:field="*{album}"/></h2>-->
+</div>
+<!--<form action="#" th:action="@{/song}" th:object="${song}" method="post">-->
+<!--  <h1>add albums</h1>-->
+<!--  <h2>title: <input type="text" th:field="*{title}"/></h2>-->
+<!--  <h2>songCount: <input type="number" th:field="*{length}"/></h2>-->
 <!--  <h2>songCount: <input type="number" th:field="*{trackNumber}"/></h2>-->
-<!--  <h2>length: <input type="text" th:field="*{length}"/></h2>-->
-  <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"></p>
+<!--    <h2>title: <input type="text" th:field="*{album}"/></h2>-->
 
-</form>
+<!--    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"></p>-->
 
+<!--</form>-->
 </body>
 </html>
